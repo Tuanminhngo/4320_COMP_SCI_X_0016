@@ -4,7 +4,12 @@ void toBinary(int number) {
   int binary[32];
   int index = 0;
 
-  if (number == 0) {
+  if (number == 0 ) {
+    std::cout <<"0"<<std::endl;
+    return;
+  }
+
+  while (number > 0) {
     binary[index] = number % 2;
     number /= 2;
     index++;
