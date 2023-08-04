@@ -18,7 +18,7 @@ int main() {
     };
     int rows = 3;
     int columns = 4;
-    int scale = 2; // Change this value to scale the matrix
+    int scale = 2; 
 
     print_scaled_matrix(matrix, rows, columns, scale);
 
