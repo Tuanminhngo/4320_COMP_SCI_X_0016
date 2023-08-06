@@ -1,20 +1,19 @@
 #include <iostream>
+#include <cstring>
 
-void count_numbers(int matrix[10][10]) {
-    int count[10] = {0}; 
+void count_digits(int array[4][4]) {
+    int digit_counts[10] = {0}; // Initialize an array to store the counts for each digit (0-9)
 
-    for (int i = 0; i < 10; i++) {
-        for (int j = 0; j < 10; j++) {
-            int num = matrix[i][j];
-            count[num]++;
+    // Count the occurrences of each digit in the matrix
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            int digit = array[i][j];
+            digit_counts[digit]++;
         }
     }
 
+    // Print the results in the specified format
     for (int i = 0; i < 10; i++) {
-        std::cout << i << ":" << count[i];
-        if (i < 9) {
-            std::cout << ";";
-        }
+        std::cout << i << ":" << digit_counts[i] << ";";
     }
-    std::cout << std::endl;
 }

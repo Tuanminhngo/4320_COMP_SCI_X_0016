@@ -1,12 +1,17 @@
-int is_identity_matrix(int matrix[10][10]) {
+#include <iostream>
+
+int is_identity(int array[10][10]) {
+
+    //iterate program to check each element in the array
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 10; j++) {
-            if (i == j && matrix[i][j] != 1) {
+            if (i == j && array[i][j] != 1) {
                 return 0;
-            } else if (i != j && matrix[i][j] != 0) {
-                return 0;
+            } else if (i != j && array[i][j] != 0) {
+                return 0;           
             }
         }
     }
+    
     return 1;
 }

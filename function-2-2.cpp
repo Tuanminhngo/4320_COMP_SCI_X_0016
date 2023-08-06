@@ -1,18 +1,14 @@
 #include <iostream>
+#include <cmath>
 
-int binaryToInt(int arr[], int size) {
-    if (size <= 0 || size > 30) {
-      return -1;
-    }
+int binary_to_int (int binary_digits[], int n) {
+    int result =0;
+    int base =2;
+    int number_of_digits = n;
 
-    int result = 0;
-    int power = 1;
-
-    for (int i = size - 1; i >= 0; i--) {
-        if (arr[i] == 1) {
-            result += power;
-        }
-        power *= 2;
+    for (int i=0; i < n; i++) {
+        result = result + binary_digits[i] * pow(base, number_of_digits-1);
+        number_of_digits--;
     }
 
     return result;

@@ -1,25 +1,16 @@
 #include <iostream>
 
-int sum_diagonal(int array[4][4]) {
-    int sum = 0;
-
-    for (int i = 0; i < 4; i++) {
-        sum += array[i][i];
-    }
-
-    return sum;
-}
+extern int sum_diagonal(int array[4][4]);
 
 int main() {
-    int matrix[4][4] = {
-        {1, 2, 3, 4},
-        {5, 6, 7, 8},
-        {9, 10, 11, 12},
-        {13, 14, 15, 16}
+    int array[4][4] = {
+        {1, 0, 0, 0},
+        {0, 1, 0, 0},
+        {0, 0, 1, 0},
+        {0, 0, 0, 3}
     };
 
-    int result = sum_diagonal(matrix);
-    std::cout << "The sum of the main diagonal elements is: " << result << std::endl;
+    std::cout << "Matrix Diagonal Sum: " << sum_diagonal(array) << std::endl;
 
     return 0;
 }

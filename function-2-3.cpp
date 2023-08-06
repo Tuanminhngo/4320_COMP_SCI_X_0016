@@ -1,42 +1,40 @@
 #include <iostream>
-#include <vector>
 
-bool isPalindrome(std::vector<int>& arr, int length) {
+bool is_palindrome(int integers[], int length) {
     if (length <= 0) {
         return false;
     }
 
-    int start = 0;
-    int end = length - 1;
-
-    while (start < end) {
-        if (arr[start] != arr[end]) {
+    for (int i = 0; i < length / 2; i++) {
+        if (integers[i] != integers[length - i - 1]) {
             return false;
         }
-        start++;
-        end--;
     }
 
     return true;
 }
 
-int calculateSum(std::vector<int>& arr, int length) {
+int sum_array_elements(int integers[], int length) {
     if (length <= 0) {
         return -1;
     }
 
     int sum = 0;
     for (int i = 0; i < length; i++) {
-        sum += arr[i];
+        sum += integers[i];
     }
 
     return sum;
 }
 
-int sumIfPalindrome(std::vector<int>& arr, int length) {
-    if (isPalindrome(arr, length)) {
-        return calculateSum(arr, length);
+int sum_if_palindrome(int integers[], int length) {
+    if (length <= 0) {
+        return -1;
     }
 
-    return -2;
+    if (!is_palindrome(integers, length)) {
+        return -2;
+    }
+
+    return sum_array_elements(integers, length);
 }
