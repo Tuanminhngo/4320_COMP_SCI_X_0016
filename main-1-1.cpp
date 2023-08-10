@@ -1,6 +1,7 @@
 #include <iostream>
 
-void print_matrix(int array[10][10]) {
+int main() {
 
-  
+
+  return 0;
 }
