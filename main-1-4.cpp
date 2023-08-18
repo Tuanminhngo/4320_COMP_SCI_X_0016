@@ -1,31 +1,31 @@
 #include <iostream>
 #include "Person.h"
 
-extern PersonList createPersonList(int n);
+using namespace std;
+
+
 
 extern PersonList shallowCopyPersonList(PersonList pl);
 
 int main() {
-    int n;
-    std::cout << "Enter the number of persons: ";
-    std::cin >> n;
+  int n;
+  cin >> n;
 
-    PersonList originalList = createPersonList(n);
+  PersonList initialList;
+  initialList.numPeople = n;
+  initialList.people = new Person[n];
 
-    PersonList shallowCopiedList = shallowCopyPersonList(originalList);
+  for (int i = 0; i < n; i++) {
+    initialList.people[i].name = "Jane Doe";
+    initialList.people[i].age = 1;
+  }
 
-    std::cout << "Original List:" << std::endl;
-    for (int i = 0; i < originalList.numPeople; i++) {
-        std::cout << "Person " << i + 1 << ": Name = " << originalList.people[i].name << ", Age = " << originalList.people[i].age << std::endl;
-    }
+  PersonList copiedList = shallowCopyPersonList(initialList);
 
-    std::cout << "Shallow Copied List:" << std::endl;
-    for (int i = 0; i < shallowCopiedList.numPeople; i++) {
-        std::cout << "Person " << i + 1 << ": Name = " << shallowCopiedList.people[i].name << ", Age = " << shallowCopiedList.people[i].age << std::endl;
-    }
+  for (int i = 0; i < n; i++) {
+    cout << "Person " << i << ": " << copiedList.people[i].name
+         << " age: " << copiedList.people[i].age << " year old\n";
+  }
 
-    // Note that deleting originalList.people would also affect shallowCopiedList.people
-    delete[] originalList.people; // Deallocate the dynamically allocated array
-
-    return 0;
+  return 0;
 }

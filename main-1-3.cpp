@@ -1,31 +1,33 @@
 #include <iostream>
 #include "Person.h"
+using namespace std;
 
-extern PersonList createPersonList(int n);
+
 
 extern PersonList deepCopyPersonList(PersonList p1);
 
 int main() {
-    int n;
-    std::cout << "Enter the number of persons: ";
-    std::cin >> n;
+  int n;
+  cin >> n;
 
-    PersonList originalList = createPersonList(n);
+  PersonList initialList;
+  initialList.numPeople = n;
+  initialList.people = new Person[n];
 
-    PersonList copiedList = deepCopyPersonList(originalList);
+  for (int i = 0; i < n; i++) {
+    initialList.people[i].name = "Jane Doe";
+    initialList.people[i].age = 1;
+  }
 
-    std::cout << "Original List:" << std::endl;
-    for (int i = 0; i < originalList.numPeople; i++) {
-        std::cout << "Person " << i + 1 << ": Name = " << originalList.people[i].name << ", Age = " << originalList.people[i].age << std::endl;
-    }
+  PersonList copiedList = deepCopyPersonList(initialList);
 
-    std::cout << "Copied List:" << std::endl;
-    for (int i = 0; i < copiedList.numPeople; i++) {
-        std::cout << "Person " << i + 1 << ": Name = " << copiedList.people[i].name << ", Age = " << copiedList.people[i].age << std::endl;
-    }
+  for (int i = 0; i < n; i++) {
+    cout << "Person " << i << ": " << copiedList.people[i].name
+         << " age: " << copiedList.people[i].age << " year old\n";
+  }
 
-    delete[] originalList.people; // Deallocate the dynamically allocated array
-    delete[] copiedList.people;
+  delete[] initialList.people;
+  delete[] copiedList.people;
 
-    return 0;
+  return 0;
 }
