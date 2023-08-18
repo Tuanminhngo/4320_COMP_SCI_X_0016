@@ -1,16 +1,7 @@
 #include <iostream>
 #include "Person.h"
 
-Person* createPersonArray(int n) {
-    Person* persons = new Person[n];
-
-    for (int i = 0; i < n; i++) {
-        persons[i].name = "John Doe";
-        persons[i].age = 0;
-    }
-
-    return persons;
-}
+extern Person* createPersonArray(int n);
 
 int main() {
     int n;
@@ -19,12 +10,11 @@ int main() {
 
     Person* personArray = createPersonArray(n);
 
-    // Print the array
     for (int i = 0; i < n; i++) {
         std::cout << "Person " << i + 1 << ": Name = " << personArray[i].name << ", Age = " << personArray[i].age << std::endl;
     }
 
-    delete[] personArray; // Deallocate the dynamically allocated array
+    delete[] personArray; 
 
     return 0;
 }

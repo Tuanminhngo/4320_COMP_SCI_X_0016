@@ -1,3 +1,5 @@
+#include <iostream>
+#include <string>
 #include "Person.h"
 
 Person* createPersonArray(int n) {
