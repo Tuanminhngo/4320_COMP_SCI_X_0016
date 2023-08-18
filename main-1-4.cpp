@@ -3,24 +3,22 @@
 
 using namespace std;
 
-
-
-extern PersonList shallowCopyPersonList(PersonList pl);
+extern PersonList SCPersonList(PersonList pl);
 
 int main() {
   int n;
   cin >> n;
 
-  PersonList initialList;
-  initialList.numPeople = n;
-  initialList.people = new Person[n];
+  PersonList firstList;
+  firstList.numPeople = n;
+  firstList.people = new Person[n];
 
   for (int i = 0; i < n; i++) {
-    initialList.people[i].name = "Jane Doe";
-    initialList.people[i].age = 1;
+    firstList.people[i].name = "Jane Doe";
+    firstList.people[i].age = 1;
   }
 
-  PersonList copiedList = shallowCopyPersonList(initialList);
+  PersonList copiedList = SCPersonList(firstList);
 
   for (int i = 0; i < n; i++) {
     cout << "Person " << i << ": " << copiedList.people[i].name

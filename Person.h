@@ -1,6 +1,4 @@
-#ifndef PERSON_H
-#define PERSON_H
-
+#include <iostream>
 #include <string>
 
 struct Person {
@@ -13,4 +11,4 @@ struct PersonList {
     int numPeople;
 };
 
-#endif // PERSON_H
+
