@@ -10,3 +10,11 @@ void Wizard::castSpell(Player* opponent) {
     opponent->takeDamage(damage);
     cout << this->name << " casts a spell on " << opponent->name << " for " << damage << " damage." << endl;
 }
+
+int Wizard::getHealth(int health) {
+    return health;
+}
+
+string Wizard::getName(string name) {
+    return name;
+}

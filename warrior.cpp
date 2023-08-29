@@ -10,3 +10,12 @@ void Warrior::swingWeapon(Player* opponent) {
     opponent->takeDamage(damage);
     cout << this->name << " swings their weapon at " << opponent->name << " for " << damage << " damage." << endl;
 }
+
+int Warrior::getHealth(int health) {
+    return health;
+
+}
+
+string Warrior::getName(string name) {
+    return name;
+}

@@ -12,6 +12,9 @@ public:
     Wizard(string name, int health, int damage, int mana);
 
     void castSpell(Player* opponent);
+    int getHealth(int health);
+
+    string getName(string name);
 };
 
 #endif

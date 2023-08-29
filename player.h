@@ -17,6 +17,8 @@ public:
     void attack(Player* opponent, int damage);
 
     void takeDamage(int damage);
+
+    
 };
 
 #endif 
