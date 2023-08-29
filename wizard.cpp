@@ -1,4 +1,5 @@
 #include "wizard.h"
+
 using namespace std;
 
 Wizard::Wizard(string name, int health, int damage, int mana) : Player(name, health, damage) {
@@ -6,15 +7,14 @@ Wizard::Wizard(string name, int health, int damage, int mana) : Player(name, hea
 }
 
 void Wizard::castSpell(Player* opponent) {
-    int damage = this->mana * 2;
-    opponent->takeDamage(damage);
-    cout << this->name << " casts a spell on " << opponent->name << " for " << damage << " damage." << endl;
+    opponent->health -= mana * 2;
+    cout << name << " casts a spell on " << opponent->name << " for " << mana * 2 << " damage." << endl;
 }
 
-int Wizard::getHealth(int health) {
-    return health;
-}
-
-string Wizard::getName(string name) {
+string Wizard::getName() {
     return name;
+}
+
+int Wizard::getHealth() {
+    return health;
 }

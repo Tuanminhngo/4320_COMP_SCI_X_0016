@@ -8,11 +8,19 @@ Player::Player(string name, int health, int damage) {
 }
 
 void Player::attack(Player* opponent, int damage) {
-    opponent->takeDamage(damage);
-    cout << this->name << " attacks " << opponent->name << " for " << damage << " damage." << endl;
+    opponent->health -= damage;
+    cout << name << " attacks " << opponent->name << " for " << damage << " damage." << endl;
 }
 
 void Player::takeDamage(int damage) {
-    this->health -= damage;
-    cout << this->name << " takes " << damage << " damage." << endl;
+    health -= damage;
+    cout << name << " takes " << damage << " damage." << endl;
+}
+
+string Player::getName() {
+    return name;
+}
+
+int Player::getHealth() {
+    return health;
 }

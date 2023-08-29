@@ -6,16 +6,14 @@ Warrior::Warrior(string name, int health, int damage, string weapon) : Player(na
 }
 
 void Warrior::swingWeapon(Player* opponent) {
-    int damage = this->damage * 2;
-    opponent->takeDamage(damage);
-    cout << this->name << " swings their weapon at " << opponent->name << " for " << damage << " damage." << endl;
+    opponent->health -= damage * 2;
+    cout << name << " swings their weapon at " << opponent->name << " for " << damage * 2 << " damage." << endl;
 }
 
-int Warrior::getHealth(int health) {
-    return health;
-
-}
-
-string Warrior::getName(string name) {
+string Warrior::getName() {
     return name;
+}
+
+int Warrior::getHealth() {
+    return health;
 }

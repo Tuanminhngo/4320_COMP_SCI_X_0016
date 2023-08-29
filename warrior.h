@@ -2,21 +2,20 @@
 #define WARRIOR_H
 
 #include "player.h"
+
 using namespace std;
 
 class Warrior : public Player {
-    private:
-    string weapon;
-    
 public:
     string weapon;
 
     Warrior(string name, int health, int damage, string weapon);
 
     void swingWeapon(Player* opponent);
-    int getHealth(int health);
 
-    string getName(string name);
+    string getName();
+
+    int getHealth();
 };
 
-#endif
+#endif // WARRIOR_H
