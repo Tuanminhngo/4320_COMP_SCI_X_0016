@@ -1,33 +1,54 @@
+#include <ctime>
 #include <iostream>
+#include <vector>
 
-#include "player.h"
-#include "warrior.h"
-#include "wizard.h"
+#include "Bus.h"
+#include "Car.h"
+#include "Motorbike.h"
 
 using namespace std;
+
 int main() {
+  vector<Vehicle*> vehicleList;
 
-  // Wizard(name, health, damage, mana)
-  Wizard wizard("Gandalf", 100, 20, 50);
+  int numCars, numBuses, numMotorbikes;
+  cout << "Enter the number of cars: ";
+  cin >> numCars;
+  cout << "Enter the number of buses: ";
+  cin >> numBuses;
+  cout << "Enter the number of motorbikes: ";
+  cin >> numMotorbikes;
 
-  // Warrior(name, health, damage, weapon)
-  Warrior warrior("Aragorn", 120, 25, "Sword");
+  for (int i = 1; i <= numCars; i++) {
+    vehicleList.push_back(new Car(i, 0));
+  }
 
-  cout << "Let the battle begin!" << endl;
+  for (int i = 1; i <= numBuses; i++) {
+    vehicleList.push_back(new Bus(i, 0));
+  }
 
-  while (wizard.getHealth() > 0 && warrior.getHealth() > 0) {
-    wizard.castSpell(&warrior);
-    if (warrior.getHealth() > 0) {
-      warrior.swingWeapon(&wizard);
+  for (int i = 1; i <= numMotorbikes; i++) {
+    vehicleList.push_back(new Motorbike(i, 0));
+  }
+
+  cout << "Parking Information:" << endl;
+  for (const auto& vehicle : vehicleList) {
+    if (const Car* car = dynamic_cast<Car*>(vehicle)) {
+      cout << "Car ID: " << car->getID()
+                << ", Parking Duration: " << car->getParkingDuration()
+                << " seconds" << endl;
+    } else if (const Bus* bus = dynamic_cast<Bus*>(vehicle)) {
+      cout << "Bus ID: " << bus->getID()
+                << ", Parking Duration: " << bus->getParkingDuration()
+                << " seconds" << endl;
+    } else if (const Motorbike* motorbike = dynamic_cast<Motorbike*>(vehicle)) {
+      cout << "Motorbike ID: " << motorbike->getID()
+                << ", Parking Duration: " << motorbike->getParkingDuration()
+                << " seconds" << endl;
     }
+
+    delete vehicle;
   }
 
-  if (wizard.getHealth() > 0) {
-    cout << wizard.getName() << " wins!" << endl;
-  } 
-  else {
-    cout << warrior.getName() << " wins!" << endl;
-  }
-  
   return 0;
 }
