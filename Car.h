@@ -2,16 +2,12 @@
 #define CAR_H
 
 #include "Vehicle.h"
-#include <iostream>
 
-using namespace std;
-
-class Car:public Vehicle
-{
-public:
-  int getParkingDuration();
-
-  Car(int ID);
+class Car : public Vehicle {
+ public:
+  Car(int id);
+  Car(int id, std::time_t timeOfEntry);
+  int getParkingDuration() const;
 };
 
 #endif

@@ -1,52 +1,44 @@
-#include <ctime>
 #include <iostream>
 #include <vector>
 
 #include "Bus.h"
 #include "Car.h"
 #include "Motorbike.h"
-
-using namespace std;
+#include "Vehicle.h"
 
 int main() {
-  vector<Vehicle*> vehicleList;
+  std::vector<Vehicle*> vehicles;
 
-  int numCars, numBuses, numMotorbikes;
-  cout << "Enter the number of cars: ";
-  cin >> numCars;
-  cout << "Enter the number of buses: ";
-  cin >> numBuses;
-  cout << "Enter the number of motorbikes: ";
-  cin >> numMotorbikes;
+  int id;
+  std::time_t parkingDuration = 0;
 
-  for (int i = 1; i <= numCars; i++) {
-    vehicleList.push_back(new Car(i, 0));
-  }
+  char vehicleType;
 
-  for (int i = 1; i <= numBuses; i++) {
-    vehicleList.push_back(new Bus(i, 0));
-  }
+  do {
+    std::cout
+        << "Enter your vehicle type (C for car, B for bus, M for motorbike, Q "
+           "to quit): ";
+    std::cin >> vehicleType;
 
-  for (int i = 1; i <= numMotorbikes; i++) {
-    vehicleList.push_back(new Motorbike(i, 0));
-  }
-
-  cout << "Parking Information:" << endl;
-  for (const auto& vehicle : vehicleList) {
-    if (const Car* car = dynamic_cast<Car*>(vehicle)) {
-      cout << "Car ID: " << car->getID()
-                << ", Parking Duration: " << car->getParkingDuration()
-                << " seconds" << endl;
-    } else if (const Bus* bus = dynamic_cast<Bus*>(vehicle)) {
-      cout << "Bus ID: " << bus->getID()
-                << ", Parking Duration: " << bus->getParkingDuration()
-                << " seconds" << endl;
-    } else if (const Motorbike* motorbike = dynamic_cast<Motorbike*>(vehicle)) {
-      cout << "Motorbike ID: " << motorbike->getID()
-                << ", Parking Duration: " << motorbike->getParkingDuration()
-                << " seconds" << endl;
+    if (vehicleType == 'C') {
+      std::cout << "Enter vehicle ID: ";
+      std::cin >> id;
+      vehicles.push_back(new Car(id, parkingDuration));
+    } else if (vehicleType == 'B') {
+      std::cout << "Enter vehicle ID: ";
+      std::cin >> id;
+      vehicles.push_back(new Bus(id, parkingDuration));
+    } else if (vehicleType == 'M') {
+      std::cout << "Enter vehicle ID: ";
+      std::cin >> id;
+      vehicles.push_back(new Motorbike(id, parkingDuration));
     }
+  } while (vehicleType != 'Q');
 
+  for (const auto vehicle : vehicles) {
+    std::cout << "Vehicle ID: " << vehicle->getID()
+              << ", Parking Duration: " << vehicle->getTimeOfEntry()
+              << " seconds" << std::endl;
     delete vehicle;
   }
 

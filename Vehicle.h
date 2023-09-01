@@ -1,21 +1,19 @@
 #ifndef VEHICLE_H
 #define VEHICLE_H
 
-#include <iostream>
 #include <ctime>
-using namespace std;
 
-class Vehicle
-{
-private:
-  int ID;
-  time_t timeOfEntry;
+class Vehicle {
+ private:
+  std::time_t timeOfEntry;
+  int id;
 
-public:
-  Vehicle(int ID);
-  int getID(int ID);
-  time_t getTimeOfEntry();
-  ~Vehicle();
+ public:
+  Vehicle(int id);
+  Vehicle(int id, std::time_t timeOfEntry);
+  int getID() const;
+  virtual int getParkingDuration() const = 0;
+  std::time_t getTimeOfEntry() const;
 };
 
-#endif 
+#endif

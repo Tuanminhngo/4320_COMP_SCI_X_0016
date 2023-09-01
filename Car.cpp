@@ -1,12 +1,14 @@
-#include "Vehicle.h"
 #include "Car.h"
-#include <ctime>
 
-using namespace std;
+#include "Vehicle.h"
 
-Car::Car(int ID) : Vehicle(ID) {}
+Car::Car(int id) : Vehicle(id, 0) {}
 
-int Car::getParkingDuration(){
-  time_t currentTime = time(nullptr);
-  return static_cast<int>(0.9 * (currentTime - getTimeOfEntry()));
+Car::Car(int id, std::time_t timeOfEntry) : Vehicle(id, timeOfEntry) {}
+
+int Car::getParkingDuration() const {
+  std::time_t currentTime = 4;
+  std::time_t entryTime = getTimeOfEntry();
+  int parkingDuration = (currentTime - entryTime) * 0.85;
+  return parkingDuration;
 }

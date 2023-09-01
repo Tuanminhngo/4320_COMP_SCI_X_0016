@@ -1,16 +1,10 @@
 #include "Vehicle.h"
-#include <iostream>
 
-using namespace std;
+Vehicle::Vehicle(int id) : id(id), timeOfEntry(0) {}
 
-Vehicle::Vehicle(int ID):ID(ID){}
+Vehicle::Vehicle(int id, std::time_t timeOfEntry)
+    : id(id), timeOfEntry(timeOfEntry) {}
 
-int Vehicle::getID(int ID){
-  return ID;
-}
+int Vehicle::getID() const { return id; }
 
-time_t Vehicle::getTimeOfEntry(){
-  return timeOfEntry;
-}
-
-Vehicle::~Vehicle() {}
+std::time_t Vehicle::getTimeOfEntry() const { return timeOfEntry; }
