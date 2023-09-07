@@ -10,10 +10,10 @@ public:
   Car();
   Car(int price);
 
-  int getPrice() const;
+  int getPrice();
   void setPrice(int price);
 
-  int getEmissions() const;
+  int getEmissions();
   void setEmissions(int emissions);
 
   virtual void drive(int kms);
