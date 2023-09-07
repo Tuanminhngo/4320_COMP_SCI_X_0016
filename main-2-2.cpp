@@ -1,8 +1,9 @@
-#include <iostream>
 #include "AirCraft.h"
+#include "Airplane.h"
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main(){
-    //AirCraft myAirCraft();
     return 0;
 }
