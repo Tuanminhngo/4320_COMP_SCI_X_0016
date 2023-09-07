@@ -2,11 +2,11 @@
 #define CAR_H
 
 class Car {
-protected:
+  
+public:
   int price;
   int emissions;
 
-public:
   Car();
   Car(int price);
 
