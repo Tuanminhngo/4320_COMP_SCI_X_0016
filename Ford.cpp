@@ -1,5 +1,5 @@
 #include "Ford.h"
-#include "Car.h"
+#include "Car.cpp"
 
 #include <iostream>
 using namespace std;

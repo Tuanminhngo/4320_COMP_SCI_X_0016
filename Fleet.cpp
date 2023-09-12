@@ -1,6 +1,6 @@
 #include "Fleet.h"
-#include "Ford.h"
-#include "Tesla.h"
+#include "Ford.cpp"
+#include "Tesla.cpp"
 #include <iostream>
 
 Fleet::Fleet() {

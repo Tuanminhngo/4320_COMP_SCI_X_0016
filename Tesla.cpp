@@ -1,5 +1,5 @@
 #include "Tesla.h"
-#include "Car.h"
+#include "Car.cpp"
 #include <iostream>
 
 Tesla::Tesla() {
