@@ -30,11 +30,7 @@ class RecordsManager {
       }
       _file.close();
     }
-  }
-
-
-
-  ;
+  };
 
   int main() {
     RecordsManager receordM("test_clean.txt");
@@ -53,3 +49,4 @@ class RecordsManager {
     cout << sum << endl;
     return 0;
   }
+};
