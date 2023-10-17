@@ -16,18 +16,7 @@ class RecordsManager {
 
  public:
   RecordsManager(string filename) : _filename(filename) {}
-  void read(Records& records) {
-    _file.open(_filename, ios::in);
-    if (_file.is_open()) {
-      string line;
-      while (std::getline(_file, line)) {
-        records.push_back(stoi(line));
-      }
-      _file.close();
-    }
-  }
-
-  void read(Records& records) {
+    void read(Records& records) {
     _file.open(_filename, ios::in);
     if (_file.is_open()) {
       string line;
@@ -42,6 +31,8 @@ class RecordsManager {
       _file.close();
     }
   }
+
+
 
   ;
 
