@@ -32,7 +32,10 @@ class RecordsManager {
     }
   };
 
-  int main() {
+  
+};
+
+int main() {
     RecordsManager receordM("test_clean.txt");
     // RecordsManager receordM("test_corrupt1.txt");
     // RecordsManager receordM("test_corrupt2.txt");
@@ -49,4 +52,3 @@ class RecordsManager {
     cout << sum << endl;
     return 0;
   }
-};
