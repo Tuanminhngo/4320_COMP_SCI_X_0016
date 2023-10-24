@@ -21,7 +21,7 @@ public:
         return type;
     }
 
-    void GameEntity::setPos(int x, int y) {
+    void setPos(int x, int y) {
         position = std::make_tuple(x, y);
     }
 };
