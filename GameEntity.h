@@ -5,10 +5,13 @@
 
 class GameEntity{
 private:
-  std::tuple<int, int> position;
-  char type;
+    std::tuple<int, int> position;
+    char type;
 public:
-    GameEntity(int x, int y, char t) : position(std::make_tuple(x, y)), type(t) {}
+    GameEntity(int x, int y, char t){
+        position = std::make_tuple(x, y);
+        this->type = type;
+    };
 
     std::tuple<int, int> getPos() const {
         return position;
