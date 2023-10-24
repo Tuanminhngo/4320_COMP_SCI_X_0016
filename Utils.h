@@ -1,3 +1,6 @@
+#ifndef UTILS_H
+#define UTILS_H
+
 #include "GameEntity.h"
 
 class Utils {
@@ -16,3 +19,5 @@ public:
         return std::sqrt(std::pow(x2 - x1, 2) + std::pow(y2 - y1, 2));
     }
 };
+
+#endif

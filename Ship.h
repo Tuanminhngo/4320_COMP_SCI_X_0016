@@ -1,3 +1,5 @@
+#ifndef SHIP_H
+#define SHIP_H
 #include "GameEntity.h"
 
 class Ship: public GameEntity{
@@ -10,3 +12,5 @@ class Ship: public GameEntity{
   setPos(x + dx, y + dy);
   };
 };
+
+#endif

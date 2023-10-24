@@ -1,3 +1,6 @@
+#ifndef EXPLOSION_H
+#define EXPLOSION_H
+
 #include "GameEntity.h"
 #include "Effect.h"
 
@@ -11,3 +14,4 @@ public:
     }
 };
 
+#endif
