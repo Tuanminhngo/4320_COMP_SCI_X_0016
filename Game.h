@@ -1,7 +1,12 @@
 #include <vector>
+#include <tuple>
 
 #include "GameEntity.h"
 #include "Utils.h"
+#include "Ship.h"
+#include "Mine.h"
+#include "Explosion.h"
+#include "Effect.h"
 
 class Game {
   private:
@@ -33,7 +38,7 @@ class Game {
         // Move all ships
         for (auto entity : entities) {
             if (entity->getType() == 'S') {
-                Ship* ship = dynamic_cast<Ship*>(entity);
+                Ship* ship = static_cast<Ship*>(entity);
                 ship->move(1, 0);
             }
         }
@@ -45,7 +50,7 @@ class Game {
                     if (mine->getType() == 'M') {
                         double distance = Utils::calculateDistance(ship->getPos(), mine->getPos());
                         if (distance < mineDistanceThreshold) {
-                            Mine* mineObj = dynamic_cast<Mine*>(mine);
+                            Mine* mineObj = static_cast<Mine*>(mine);
                             mineObj->explode();
                         }
                     }
