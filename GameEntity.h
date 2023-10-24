@@ -24,6 +24,10 @@ public:
     void setPos(int x, int y) {
         position = std::make_tuple(x, y);
     }
+
+    void setType(char type){
+        this->type = type;
+    };
 };
 
 
