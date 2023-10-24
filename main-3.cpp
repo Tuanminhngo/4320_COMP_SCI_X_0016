@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "Game.h"
 #include <iostream>
 
 int main() {
@@ -15,7 +15,7 @@ int main() {
     // Print initial game entities
     std::cout << "Initial game entities:" << std::endl;
     for (auto entity : entities) {
-        std::cout << "Type: " << entity->getType() << ", Position: " << entity->getPos() << std::endl;
+        std::cout << "Type: " << entity->getType() << ", Position: "  << std::endl;
     }
 
     // Simulate the game
@@ -26,7 +26,7 @@ int main() {
     // Print final game entities
     std::cout << "\nFinal game entities:" << std::endl;
     for (auto entity : entities) {
-        std::cout << "Type: " << entity->getType() << ", Position: " << entity->getPos() << std::endl;
+        std::cout << "Type: " << entity->getType() << ", Position: " << std::endl;
         delete entity; // Don't forget to delete the allocated entities
     }
 
