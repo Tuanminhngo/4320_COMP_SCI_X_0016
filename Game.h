@@ -1,5 +1,5 @@
-#ifndef GAME_H
-#define GAME_H
+#ifndef GAME_HPP
+#define GAME_HPP
 
 #include <vector>
 #include <iostream>
@@ -58,20 +58,20 @@ void Game::gameLoop(int maxIterations, double trapActivationDistance) {
     for (int iteration = 0; iteration < maxIterations; ++iteration) {
         // Move all Characters to the right
         for (auto cell : grid) {
-            if (dynamic_cast<Character*>(cell)) {
-                cell->move(1, 0);
+            if (auto character = dynamic_cast<Character*>(cell)) {
+                character->move(1, 0);
             }
         }
 
         // Check for nearby Trap objects and apply them to Characters
         for (auto cell : grid) {
-            if (dynamic_cast<Character*>(cell)) {
+            if (auto character = dynamic_cast<Character*>(cell)) {
                 for (auto otherCell : grid) {
-                    if (dynamic_cast<Trap*>(otherCell)) {
-                        double distance = Utils::calculateDistance(cell->getPos(), otherCell->getPos());
+                    if (auto trap = dynamic_cast<Trap*>(otherCell)) {
+                        double distance = Utils::calculateDistance(cell->getPos(), trap->getPos());
                         if (distance <= trapActivationDistance) {
                             // Apply the Trap effect on the Character
-                            cell->setType('T');
+                            character->setType('T');
                         }
                     }
                 }
@@ -80,8 +80,8 @@ void Game::gameLoop(int maxIterations, double trapActivationDistance) {
 
         // Check if any Character has stepped outside of the grid
         for (auto cell : grid) {
-            if (dynamic_cast<Character*>(cell)) {
-                int x = cell->getPos().first;
+            if (auto character = dynamic_cast<Character*>(cell)) {
+                int x = std::get<0>(character->getPos());
                 if (x >= gridWidth) {
                     std::cout << "Character has won the game!" << std::endl;
                     return;
