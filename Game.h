@@ -57,7 +57,7 @@ void Game::gameLoop(int maxIterations, double trapActivationDistance) {
         // Move all Characters to the right
         for (auto cell : grid) {
             if (dynamic_cast<Character*>(cell)) {
-                cell->move(1, 0);
+                cell->setPos(1, 0);
             }
         }
 
